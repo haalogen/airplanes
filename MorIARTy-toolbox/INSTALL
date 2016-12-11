@@ -1,0 +1,40 @@
+==================================================
+1. To build MorIARTy from the sources
+==================================================
+
+1.1. Download MorIARTy source archive and extract MorIARTy-toolbox source tree.
+
+1.2. Start Scilab and change directory to MorIARTy-toolbox:
+
+    cd MorIARTy-toolbox
+
+1.3. Build MorIARTy in Scilab:
+
+    exec builder.sce;
+
+==================================================
+2. To start MorIARTy
+==================================================
+
+Start Scilab, change directory to MorIARTy-toolbox and execute "loader.sce"
+scenario:
+
+    cd MorIARTy-toolbox
+    exec loader.sce;
+
+==================================================
+3. Make MorIARTy load at every Scilab startup
+==================================================
+
+To make Scilab load MorIARTy every time Scilab is starting up add the following
+lines to Scilab startup scenario "scilab.start" located in <Scilab_root>/etc
+directory:
+
+    exec("<full_path_to_MorIARTy-toolbox>/loader.sce");
+
+NOTE: <Scilab_root> is the value of Scilab variable "SCI", usually
+"/usr/share/scilab" on Linux.
+
+NOTE: Usually Scilab toolboxes are located in <Scilab_root>/contrib directory.
+So it will be better to place MorIARTy-toolbox into that directory if you decide
+to add it to Scilab permanently.

@@ -1,0 +1,94 @@
+// Create a mosaic 2D data
+data = zeros(10, 5);
+brightness = [0 0.5 1 0.75 0.25];
+for i = 1 : 5
+    data((i-1) * 2 + 1 : i * 2, :) = brightness(i);
+end
+// Create a shape
+shape = MCreateMosaicShape(data, "gray");
+data
+ data  =
+ 
+    0.      0.      0.      0.      0.    
+    0.      0.      0.      0.      0.    
+    0.5     0.5     0.5     0.5     0.5   
+    0.5     0.5     0.5     0.5     0.5   
+    1.      1.      1.      1.      1.    
+    1.      1.      1.      1.      1.    
+    0.75    0.75    0.75    0.75    0.75  
+    0.75    0.75    0.75    0.75    0.75  
+    0.25    0.25    0.25    0.25    0.25  
+    0.25    0.25    0.25    0.25    0.25  
+shape
+ shape  =
+ 
+   obj_name: "shape"
+   shape_type: ["grayscale","mosaic"]
+   data_size: [10,5]
+   number_of_regions: 5
+   regions: [10x5 constant]
+   region_areas: [10,10,10,10,10]
+shape.regions
+ ans  =
+ 
+    1.    1.    1.    1.    1.  
+    1.    1.    1.    1.    1.  
+    3.    3.    3.    3.    3.  
+    3.    3.    3.    3.    3.  
+    5.    5.    5.    5.    5.  
+    5.    5.    5.    5.    5.  
+    4.    4.    4.    4.    4.  
+    4.    4.    4.    4.    4.  
+    2.    2.    2.    2.    2.  
+    2.    2.    2.    2.    2.  
+// Create a mosaic 3D data
+data = zeros(5, 5, 2);
+brightness = [0 0.5 1 0.75 0.25];
+for i = 1 : 5
+    data((i-1) * 1 + 1 : i * 1, :, :) = brightness(i);
+end
+// Create a shape
+shape = MCreateMosaicShape(data, "grayscale");
+data
+ data  =
+ 
+(:,:,1)
+ 
+    0.      0.      0.      0.      0.    
+    0.5     0.5     0.5     0.5     0.5   
+    1.      1.      1.      1.      1.    
+    0.75    0.75    0.75    0.75    0.75  
+    0.25    0.25    0.25    0.25    0.25  
+(:,:,2)
+ 
+    0.      0.      0.      0.      0.    
+    0.5     0.5     0.5     0.5     0.5   
+    1.      1.      1.      1.      1.    
+    0.75    0.75    0.75    0.75    0.75  
+    0.25    0.25    0.25    0.25    0.25  
+shape
+ shape  =
+ 
+   obj_name: "shape"
+   shape_type: ["grayscale","mosaic"]
+   data_size: [5,5,2]
+   number_of_regions: 5
+   regions: hypermat
+   region_areas: [10,10,10,10,10]
+shape.regions
+ ans  =
+ 
+(:,:,1)
+ 
+    1.    1.    1.    1.    1.  
+    3.    3.    3.    3.    3.  
+    5.    5.    5.    5.    5.  
+    4.    4.    4.    4.    4.  
+    2.    2.    2.    2.    2.  
+(:,:,2)
+ 
+    1.    1.    1.    1.    1.  
+    3.    3.    3.    3.    3.  
+    5.    5.    5.    5.    5.  
+    4.    4.    4.    4.    4.  
+    2.    2.    2.    2.    2.  

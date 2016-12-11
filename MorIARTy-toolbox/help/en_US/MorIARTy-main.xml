@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * Description of MorIARTy
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="Abstract" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>Abstract</refname>
+    <refpurpose>MorIARTy — Morphological Image Analysis and Recognition Toolbox.</refpurpose>
+  </refnamediv>
+
+
+<refsection>
+   <!-- title>Abstract</title -->
+   <para>
+MorIARTy stands for Morphological Image Analysis and Recognition Toolbox —
+a Scilab toolbox implementing the basic algorithms for Pyt'ev morphological
+image analysis. MorIARTy is also usable to demonstrate foundational concepts
+of Pyt'ev morphology such as «image shape», «projection onto image shape»,
+and so on.
+   </para>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Andrey Zubyuk</member>
+   </simplelist>
+</refsection>
+</refentry>

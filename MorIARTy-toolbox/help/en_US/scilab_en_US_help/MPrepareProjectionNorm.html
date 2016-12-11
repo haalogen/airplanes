@@ -1,0 +1,117 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>MPrepareProjectionNorm</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="MPrepareNorm.html">&lt;&lt; MPrepareNorm</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8f0d147f1644ca264c720fe8c2737ba1.html">Projection onto image shape</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="MProject.html">MProject &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">MorIARTy</a> &gt;&gt; <a href="section_e4f4a7f15443d11d58f1265b154c7d06.html">MorIARTy</a> &gt; <a href="section_8bf866fd3c79b085535b3b9f3579919f.html">Computational routines</a> &gt; <a href="section_8f0d147f1644ca264c720fe8c2737ba1.html">Projection onto image shape</a> &gt; MPrepareProjectionNorm</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">MPrepareProjectionNorm</h1>
+    <p class="refpurpose">Prepare to calculate norm of an image projection.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">proj_norm_calc</span><span class="default"> = </span><span class="functionid">MPrepareProjectionNorm</span><span class="default">(</span><span class="default">projection</span><span class="default">, </span><span class="default">options</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">projection:</span>
+      <dd><p class="para">Projection.</p></dd></dt>
+   <dt><span class="term">options:</span>
+      <dd><p class="para">Required parameters of a calculation process.</p></dd></dt>
+   <dt><span class="term">proj_norm_calc:</span>
+      <dd><p class="para">A structure containing the prepared data.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para"><a href="MPrepareProjectionNorm.html" class="link">MPrepareProjectionNorm()</a>
+prepares all auxiliary data necessary to calculate norm of an image projection.
+The argument projection is a structure typically created using
+<a href="MCreateProjection.html" class="link">MCreateProjection()</a>.
+The returned structure proj_norm_calc contains the prepared data and can be used
+as an argument to
+<a href="MCalculateProjectionNorm.html" class="link">MCalculateProjectionNorm()</a>.</p>
+   <p class="para">Options must be a structure with the following fields:</p>
+   <p class="para">▶ translation — if translation is not &#0034;no&#0034;, a sliding window algorithm
+will be applied and projection norm will be calculated for all positions
+of that window inside an image. The size of a sliding window will be the
+same as the size of the image shape associated with projection.</p>
+   <p class="para">The possible values for translation are:
+&#0034;no&#0034; — no sliding window applied,
+&#0034;brute-force&#0034; — brute-force implementation of a sliding window (very slow,
+implemented only for reference),
+&#0034;fft&#0034; — a sliding window implementation via fast Fourier transform.
+If translation is set to &#0034;fft&#0034;, options must contain the field data_size.</p>
+   <p class="para">▶ data_size — size of an image which projection norm has to be
+calculated, must be not less than the size of the image shape. The field
+data_size is mandatory only if translation is &#0034;fft&#0034;.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Create a shape and a projection onto it</span>
+<span class="scilabid">img</span> <span class="scilaboperator">=</span> <span class="scilabid">imread</span><span class="scilabopenclose">(</span><a class="scilabcommand" href="scilab://fullpath">fullpath</a><span class="scilabopenclose">(</span><span class="scilabid">MorIARTyPath</span><span class="scilabopenclose">(</span><span class="scilabopenclose">)</span> <span class="scilaboperator">+</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">/images/cube/cube-1.png</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">img</span> <span class="scilaboperator">=</span> <span class="scilabid">im2double</span><span class="scilabopenclose">(</span><span class="scilabid">img</span><span class="scilabopenclose">(</span><span class="scilabspecial">:</span><span class="scilabdefault">,</span> <span class="scilabspecial">:</span><span class="scilabdefault">,</span> <span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">shape</span> <span class="scilaboperator">=</span> <span class="scilabid">MCreateMosaicShape</span><span class="scilabopenclose">(</span><span class="scilabid">img</span><span class="scilabdefault">,</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">grayscale</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">projection</span> <span class="scilaboperator">=</span> <span class="scilabid">MCreateProjection</span><span class="scilabopenclose">(</span><span class="scilabid">shape</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+
+<span class="scilabcomment">// Prepare to calculate a projection norm</span>
+<span class="scilabid">options</span> <span class="scilaboperator">=</span> <a class="scilabmacro" href="scilab://struct">struct</a><span class="scilabopenclose">(</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">options</span><span class="scilaboperator">.</span><span class="scilabfield">translation</span> <span class="scilaboperator">=</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">fft</span><span class="scilabstring">&#0034;</span><span class="scilabdefault">;</span> <span class="scilabcomment">// may be </span><span class="scilabcomment">&#0034;</span><span class="scilabcomment">no</span><span class="scilabcomment">&#0034;</span><span class="scilabcomment">, </span><span class="scilabcomment">&#0034;</span><span class="scilabcomment">brute-force</span><span class="scilabcomment">&#0034;</span><span class="scilabcomment">, or </span><span class="scilabcomment">&#0034;</span><span class="scilabcomment">fft</span><span class="scilabcomment">&#0034;</span>
+<span class="scilabid">options</span><span class="scilaboperator">.</span><span class="scilabfield">data_size</span> <span class="scilaboperator">=</span> <span class="scilabopenclose">[</span><span class="scilabnumber">1080</span><span class="scilabdefault">,</span> <span class="scilabnumber">1920</span><span class="scilabopenclose">]</span><span class="scilabdefault">;</span>
+<span class="scilabid">proj_norm_calc</span> <span class="scilaboperator">=</span> <span class="scilabid">MPrepareProjectionNorm</span><span class="scilabopenclose">(</span><span class="scilabid">projection</span><span class="scilabdefault">,</span> <span class="scilabid">options</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">See also</h3>
+   <ul class="itemizedlist"><li class="member"><a href="MCreateProjection.html" class="link">MCreateProjection</a></li>
+   <li class="member"><a href="MCalculateProjectionNorm.html" class="link">MCalculateProjectionNorm</a></li>
+   <li class="member"><a href="MPrepareNorm.html" class="link">MPrepareNorm</a></li>
+   <li class="member"><a href="scilab://fft" class="link">fft</a></li></ul></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Andrey Zubyuk</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="MPrepareNorm.html">&lt;&lt; MPrepareNorm</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_8f0d147f1644ca264c720fe8c2737ba1.html">Projection onto image shape</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="MProject.html">MProject &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

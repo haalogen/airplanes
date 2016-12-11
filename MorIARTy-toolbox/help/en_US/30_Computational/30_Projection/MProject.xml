@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from MProject.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="MProject" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>MProject</refname>
+    <refpurpose>Project an image onto the image shape using the specified projection.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   result = MProject(projection, data)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>projection:</term>
+      <listitem><para> Projection.</para></listitem></varlistentry>
+   <varlistentry><term>data:</term>
+      <listitem><para> An image which needs to be projected.</para></listitem></varlistentry>
+   <varlistentry><term>result:</term>
+      <listitem><para> Projection of the given image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+<link linkend="MProject">MProject()</link> projects
+the given image onto the image shape being the range of the specified projection.
+The argument projection must be a structure representing a projection. Such a
+structure is typically created using <link linkend="MCreateProjection">MCreateProjection()</link>.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Read two images of a cube and an image of a circle
+imgfile = fullpath(MorIARTyPath() + "/images/cube/cube-1.png");
+cube1 = im2double(imread(imgfile));
+cube1 = cube1(:, :, 1);
+imgfile = fullpath(MorIARTyPath() + "/images/cube/cube-2.png");
+cube2 = im2double(imread(imgfile));
+cube2 = cube2(:, :, 1);
+imgfile = fullpath(MorIARTyPath() + "/images/cube/circle.png");
+circle = im2double(imread(imgfile));
+circle = circle(:, :, 1);
+
+// Create the shape of the 1-st cube image and projection onto it
+shape_cube = MCreateMosaicShape(cube1, "grayscale");
+projection_cube = MCreateProjection(shape_cube);
+
+// Calculate projection of the 2-nd cube image
+p_cube2 = MProject(projection_cube, cube2);
+norm(cube2(:) - p_cube2(:)) // 0 expected
+
+// Calculate projection of the circle image
+p_circle = MProject(projection_cube, circle);
+norm(circle(:) - p_circle(:)) // non-zero value expected
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="MCreateProjection">MCreateProjection</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Andrey Zubyuk</member>
+   </simplelist>
+</refsection>
+</refentry>

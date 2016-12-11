@@ -1,0 +1,79 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>MorIARTyPath</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="MQuantize.html">&lt;&lt; MQuantize</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_7df1843d60f353634e4679dc2e9af02a.html">Auxiliary routines</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">MorIARTy</a> &gt;&gt; <a href="section_e4f4a7f15443d11d58f1265b154c7d06.html">MorIARTy</a> &gt; <a href="section_7df1843d60f353634e4679dc2e9af02a.html">Auxiliary routines</a> &gt; MorIARTyPath</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">MorIARTyPath</h1>
+    <p class="refpurpose">Return a full path to the MorIARTy root directory.</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">root_path</span><span class="default"> = </span><span class="functionid">MorIARTyPath</span><span class="default">()</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">root_path:</span>
+      <dd><p class="para">A full path to the MorIARTy root directory.</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para"><a href="MorIARTyPath.html" class="link">MorIARTyPath()</a>
+returns a full path to the MorIARTy root directory.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabcomment">// Read an image from MorIARTy images subdirectory</span>
+<span class="scilabid">imgfile</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://fullpath">fullpath</a><span class="scilabopenclose">(</span><span class="scilabid">MorIARTyPath</span><span class="scilabopenclose">(</span><span class="scilabopenclose">)</span> <span class="scilaboperator">+</span> <span class="scilabstring">&#0034;</span><span class="scilabstring">/images/cube/cube-1.png</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">cube</span> <span class="scilaboperator">=</span> <span class="scilabid">im2double</span><span class="scilabopenclose">(</span><span class="scilabid">imread</span><span class="scilabopenclose">(</span><span class="scilabid">imgfile</span><span class="scilabopenclose">)</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">cube</span> <span class="scilaboperator">=</span> <span class="scilabid">cube</span><span class="scilabopenclose">(</span><span class="scilabspecial">:</span><span class="scilabdefault">,</span> <span class="scilabspecial">:</span><span class="scilabdefault">,</span> <span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Andrey Zubyuk</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="MQuantize.html">&lt;&lt; MQuantize</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_7df1843d60f353634e4679dc2e9af02a.html">Auxiliary routines</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+imgfile = fullpath(MorIARTyPath() + "/images/camera/petrozavodsk-marx_avenue-1.png");
+img = im2double(imread(imgfile));
+img = img(:, :, 1);
+levels = linspace(min(img), max(img), 11);
+levels = levels(2 : $ - 1);
+shape = MCreateMosaicShape(img, "grayscale", "quantize", struct("levels", levels))
+ shape  =
+ 
+   obj_name: "shape"
+   shape_type: ["grayscale","mosaic"]
+   data_size: [600,550]
+   number_of_regions: 10
+   regions: [600x550 constant]
+   region_areas: [49697,128973,65138,4431,2940,6543,16622,26451,23305,5900]
+P = MCreateProjection(shape);
+pimg = MProject(P, img);
+dev = img - pimg;
+norm(dev(:))
+ ans  =
+ 
+    14.021722  

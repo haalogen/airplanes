@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from MPrepareProjectionNorm.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="MPrepareProjectionNorm" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>MPrepareProjectionNorm</refname>
+    <refpurpose>Prepare to calculate norm of an image projection.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   proj_norm_calc = MPrepareProjectionNorm(projection, options)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>projection:</term>
+      <listitem><para> Projection.</para></listitem></varlistentry>
+   <varlistentry><term>options:</term>
+      <listitem><para> Required parameters of a calculation process.</para></listitem></varlistentry>
+   <varlistentry><term>proj_norm_calc:</term>
+      <listitem><para> A structure containing the prepared data.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+<link linkend="MPrepareProjectionNorm">MPrepareProjectionNorm()</link>
+prepares all auxiliary data necessary to calculate norm of an image projection.
+The argument projection is a structure typically created using
+<link linkend="MCreateProjection">MCreateProjection()</link>.
+The returned structure proj_norm_calc contains the prepared data and can be used
+as an argument to
+<link linkend="MCalculateProjectionNorm">MCalculateProjectionNorm()</link>.
+   </para>
+   <para>
+Options must be a structure with the following fields:
+   </para>
+   <para>
+▶ translation — if translation is not "no", a sliding window algorithm
+will be applied and projection norm will be calculated for all positions
+of that window inside an image. The size of a sliding window will be the
+same as the size of the image shape associated with projection.
+   </para>
+   <para>
+The possible values for translation are:
+"no" — no sliding window applied,
+"brute-force" — brute-force implementation of a sliding window (very slow,
+implemented only for reference),
+"fft" — a sliding window implementation via fast Fourier transform.
+If translation is set to "fft", options must contain the field data_size.
+   </para>
+   <para>
+▶ data_size — size of an image which projection norm has to be
+calculated, must be not less than the size of the image shape. The field
+data_size is mandatory only if translation is "fft".
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a shape and a projection onto it
+img = imread(fullpath(MorIARTyPath() + "/images/cube/cube-1.png"));
+img = im2double(img(:, :, 1));
+shape = MCreateMosaicShape(img, "grayscale");
+projection = MCreateProjection(shape);
+
+// Prepare to calculate a projection norm
+options = struct();
+options.translation = "fft"; // may be "no", "brute-force", or "fft"
+options.data_size = [1080, 1920];
+proj_norm_calc = MPrepareProjectionNorm(projection, options);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="MCreateProjection">MCreateProjection</link></member>
+   <member><link linkend="MCalculateProjectionNorm">MCalculateProjectionNorm</link></member>
+   <member><link linkend="MPrepareNorm">MPrepareNorm</link></member>
+   <member><link linkend="fft">fft</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Andrey Zubyuk</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN" "http://java.sun.com/products/javahelp/toc_1_0.dtd">
+<toc version="1.0">
+<tocitem target="index" text="MorIARTy">
+<tocitem target="section_e4f4a7f15443d11d58f1265b154c7d06" text="MorIARTy">
+<tocitem target="Abstract" text="Abstract"/>
+<tocitem target="section_8bf866fd3c79b085535b3b9f3579919f" text="Computational routines">
+<tocitem target="section_aeb877b2ac8005b93d5e683d0956c3b4" text="Image shape">
+<tocitem target="MCreateMosaicShape" text="MCreateMosaicShape"/>
+</tocitem>
+<tocitem target="section_8f0d147f1644ca264c720fe8c2737ba1" text="Projection onto image shape">
+<tocitem target="MCalculateNorm" text="MCalculateNorm"/>
+<tocitem target="MCalculateProjectionNorm" text="MCalculateProjectionNorm"/>
+<tocitem target="MCreateProjection" text="MCreateProjection"/>
+<tocitem target="MPrepareNorm" text="MPrepareNorm"/>
+<tocitem target="MPrepareProjectionNorm" text="MPrepareProjectionNorm"/>
+<tocitem target="MProject" text="MProject"/>
+</tocitem>
+</tocitem>
+<tocitem target="section_7df1843d60f353634e4679dc2e9af02a" text="Auxiliary routines">
+<tocitem target="MQuantize" text="MQuantize"/>
+<tocitem target="MorIARTyPath" text="MorIARTyPath"/>
+</tocitem>
+</tocitem>
+</tocitem>
+</toc>

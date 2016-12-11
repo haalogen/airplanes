@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from MCalculateNorm.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="MCalculateNorm" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>MCalculateNorm</refname>
+    <refpurpose>Calculate norm of the given image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   data_norm = MCalculateNorm(norm_calc, data)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>norm_calc:</term>
+      <listitem><para> A structure containing the data prepared to calculate norm.</para></listitem></varlistentry>
+   <varlistentry><term>data:</term>
+      <listitem><para> An image which norm needs to be calculated</para></listitem></varlistentry>
+   <varlistentry><term>data_norm:</term>
+      <listitem><para> Norm of the given image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+<link linkend="MCalculateNorm">MCalculateNorm()</link>
+returns norm of the given image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Read an image
+img = imread(fullpath(MorIARTyPath() + "/images/svo/svo.png"));
+img = im2double(img(:, :, 1));
+
+// Prepare to calculate a norm
+options = struct();
+options.translation = "fft";
+options.window_size = [30, 30];
+options.data_size = size(img);
+norm_calc = MPrepareNorm(options, "grayscale");
+
+// Calculate the norm
+img_norm = MCalculateNorm(norm_calc, img);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="MPrepareNorm">MPrepareNorm</link></member>
+   <member><link linkend="MCalculateProjectionNorm">MCalculateProjectionNorm</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Andrey Zubyuk</member>
+   </simplelist>
+</refsection>
+</refentry>

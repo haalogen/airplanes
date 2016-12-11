@@ -1,0 +1,36 @@
+Toolbox: MorIARTy
+
+Title: MorIARTy
+
+Summary: Morphological Image Analysis and Recognition Toolbox
+
+Version: 0.1
+
+Author:
+  Andrey Zubyuk
+
+Maintainer: MorIARTy Team
+
+Category: Image Processing
+
+Entity: MorIARTy Team - Lomonosov Moscow State University
+
+WebSite: https://cmpd2.phys.msu.ru/redmine/projects/moriarty
+
+License: GNU GPL v2
+
+ScilabVersion: >= 5.5
+
+Depends:
+  NaN-toolbox
+
+Date: 2016-09-23
+
+Description:
+
+  MorIARTy stands for Morphological Image Analysis and Recognition Toolbox —
+  a Scilab toolbox implementing the basic algorithms for Pyt'ev morphological
+  image analysis. MorIARTy is also usable to demonstrate foundational concepts
+  of Pyt'ev morphology such as «image shape», «projection onto image shape»,
+  and so on.
+ 

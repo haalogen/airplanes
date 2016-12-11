@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
+<map version="1.0">
+<mapID target="index" url="index.html"/>
+<mapID target="section_e4f4a7f15443d11d58f1265b154c7d06" url="section_e4f4a7f15443d11d58f1265b154c7d06.html"/>
+<mapID target="Abstract" url="Abstract.html"/>
+<mapID target="section_8bf866fd3c79b085535b3b9f3579919f" url="section_8bf866fd3c79b085535b3b9f3579919f.html"/>
+<mapID target="section_aeb877b2ac8005b93d5e683d0956c3b4" url="section_aeb877b2ac8005b93d5e683d0956c3b4.html"/>
+<mapID target="MCreateMosaicShape" url="MCreateMosaicShape.html"/>
+<mapID target="section_8f0d147f1644ca264c720fe8c2737ba1" url="section_8f0d147f1644ca264c720fe8c2737ba1.html"/>
+<mapID target="MCalculateNorm" url="MCalculateNorm.html"/>
+<mapID target="MCalculateProjectionNorm" url="MCalculateProjectionNorm.html"/>
+<mapID target="MCreateProjection" url="MCreateProjection.html"/>
+<mapID target="MPrepareNorm" url="MPrepareNorm.html"/>
+<mapID target="MPrepareProjectionNorm" url="MPrepareProjectionNorm.html"/>
+<mapID target="MProject" url="MProject.html"/>
+<mapID target="section_7df1843d60f353634e4679dc2e9af02a" url="section_7df1843d60f353634e4679dc2e9af02a.html"/>
+<mapID target="MQuantize" url="MQuantize.html"/>
+<mapID target="MorIARTyPath" url="MorIARTyPath.html"/>
+</map>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY aced82e848f7690c7aa198eece762bbb9 SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/MorIARTy-main.xml">
+<!ENTITY af9fcbc8a44ee7f7af2653475559bfae2 SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/30_Computational/20_Shape/MCreateMosaicShape.xml">
+<!ENTITY a15e33b275552a275f552ec7e22086e6d SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/30_Computational/30_Projection/MCalculateNorm.xml">
+<!ENTITY a2d358780ec03b30f5020928600f3b68c SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/30_Computational/30_Projection/MCalculateProjectionNorm.xml">
+<!ENTITY acd9a3c32b5ab0faeb135d5d946377e11 SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/30_Computational/30_Projection/MCreateProjection.xml">
+<!ENTITY ace15d845f9ee0a7509c3260003491ac3 SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/30_Computational/30_Projection/MPrepareNorm.xml">
+<!ENTITY a508b87473bf8516fa43c1fae4e3cf2ce SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/30_Computational/30_Projection/MPrepareProjectionNorm.xml">
+<!ENTITY a28a5a7f88cd68ad07f974bea3ac709c1 SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/30_Computational/30_Projection/MProject.xml">
+<!ENTITY a65bf760788bbe17d8a43ce404e0fdb7a SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/40_Auxiliary/MQuantize.xml">
+<!ENTITY a2bd4358b26af9b149a3846dbf51452ab SYSTEM "/home/stan/projects/scilab_morph/airplanes/MorIARTy-toolbox/help/en_US/40_Auxiliary/MorIARTyPath.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='moriarty_manual'>
+    <title>MorIARTy</title>
+  </info>
+
+<part xml:id='section_e4f4a7f15443d11d58f1265b154c7d06'>
+<title>MorIARTy</title>
+&aced82e848f7690c7aa198eece762bbb9;
+<chapter xml:id='section_8bf866fd3c79b085535b3b9f3579919f'>
+<title>Computational routines</title>
+<section xml:id='section_aeb877b2ac8005b93d5e683d0956c3b4'>
+<title>Image shape</title>
+&af9fcbc8a44ee7f7af2653475559bfae2;
+</section>
+<section xml:id='section_8f0d147f1644ca264c720fe8c2737ba1'>
+<title>Projection onto image shape</title>
+&a15e33b275552a275f552ec7e22086e6d;
+&a2d358780ec03b30f5020928600f3b68c;
+&acd9a3c32b5ab0faeb135d5d946377e11;
+&ace15d845f9ee0a7509c3260003491ac3;
+&a508b87473bf8516fa43c1fae4e3cf2ce;
+&a28a5a7f88cd68ad07f974bea3ac709c1;
+</section>
+</chapter>
+<chapter xml:id='section_7df1843d60f353634e4679dc2e9af02a'>
+<title>Auxiliary routines</title>
+&a65bf760788bbe17d8a43ce404e0fdb7a;
+&a2bd4358b26af9b149a3846dbf51452ab;
+</chapter>
+</part>
+</book>

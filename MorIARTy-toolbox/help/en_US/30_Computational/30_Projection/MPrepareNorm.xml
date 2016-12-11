@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from MPrepareNorm.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="MPrepareNorm" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>MPrepareNorm</refname>
+    <refpurpose>Prepare to calculate norm of an image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   norm_calc = MPrepareNorm(options, data_type)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>options:</term>
+      <listitem><para> Required parameters of a calculation process.</para></listitem></varlistentry>
+   <varlistentry><term>data_type:</term>
+      <listitem><para> Image type: "grayscale" (or simply "gray") or "color" (only "grayscale" is now implemented). May be omitted which means "grayscale".</para></listitem></varlistentry>
+   <varlistentry><term>norm_calc:</term>
+      <listitem><para> A structure containing the prepared data.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+<link linkend="MPrepareNorm">MPreareNorm()</link>
+prepares all auxiliary data necessary to calculate norm of an image.
+The returned structure norm_calc contains the prepared data and can be used
+as an argument to
+<link linkend="MCalculateNorm">MCalculateNorm()</link>.
+   </para>
+   <para>
+Options must be a structure with the following fields:
+   </para>
+   <para>
+▶ translation — if translation is not "no", a sliding window algorithm
+will be applied and image norm will be calculated for all positions
+of that window inside an image. In such a case a sliding window size
+must be specified using window_size field of options.
+   </para>
+   <para>
+The possible values for translation are:
+"no" — no sliding window applied,
+"brute-force" — brute-force implementation of a sliding window (very slow,
+implemented only for reference),
+"fft" — a sliding window implementation via fast Fourier transform.
+If translation is set to "fft", options must contain the field data_size.
+   </para>
+   <para>
+▶ window_size — size of a sliding window. The field window_size is
+mandatory if translation is not "no".
+   </para>
+   <para>
+▶ data_size — size of an image which norm has to be calculated, must
+be not less than a sliding window size. The field data_size is mandatory
+only if translation is "fft".
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+options = struct();
+options.translation = "fft"; // may be "no", "brute-force", or "fft"
+options.window_size = [100, 100];
+options.data_size = [1080, 1920];
+norm_calc = MPrepareNorm(options, "grayscale");
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="MCalculateNorm">MCalculateNorm</link></member>
+   <member><link linkend="MPrepareProjectionNorm">MPrepareProjectionNorm</link></member>
+   <member><link linkend="fft">fft</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Andrey Zubyuk</member>
+   </simplelist>
+</refsection>
+</refentry>

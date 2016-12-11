@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from MCalculateProjectionNorm.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="MCalculateProjectionNorm" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>MCalculateProjectionNorm</refname>
+    <refpurpose>Calculate norm of the projection of the given image.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   proj_norm = MCalculateProjectionNorm(proj_norm_calc, data)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>proj_norm_calc:</term>
+      <listitem><para> A structure containing the data prepared to calculate projection norm.</para></listitem></varlistentry>
+   <varlistentry><term>data:</term>
+      <listitem><para> An image which projection norm needs to be calculated</para></listitem></varlistentry>
+   <varlistentry><term>proj_norm:</term>
+      <listitem><para> Norm of the projection of the given image.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+<link linkend="MCalculateProjectionNorm">MCalculateProjectionNorm()</link>
+returns norm of the projection of the given image.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+// Create a shape and a projection onto it
+img1 = imread(fullpath(MorIARTyPath() + "/images/svo/airplane.png"));
+img1 = im2double(img1(:, :, 1));
+shape = MCreateMosaicShape(img1, "grayscale");
+projection = MCreateProjection(shape);
+
+// Read another image
+img2 = imread(fullpath(MorIARTyPath() + "/images/svo/svo.png"));
+img2 = im2double(img2(:, :, 1));
+
+// Prepare to calculate a projection norm
+options = struct();
+options.translation = "fft";
+options.data_size = size(img2);
+proj_norm_calc = MPrepareProjectionNorm(projection, options);
+
+// Calculate the norm of the projection
+proj_norm = MCalculateProjectionNorm(proj_norm_calc, img2);
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="MPrepareProjectionNorm">MPrepareProjectionNorm</link></member>
+   <member><link linkend="MCalculateNorm">MCalculateNorm</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Andrey Zubyuk</member>
+   </simplelist>
+</refsection>
+</refentry>

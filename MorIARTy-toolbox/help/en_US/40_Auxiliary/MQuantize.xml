@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * Help for MQuantize().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="MQuantize" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>MQuantize</refname>
+    <refpurpose>Quantize data using specified quantization levels.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   qdata = MQuantize(data, levels)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>data:</term>
+      <listitem><para>Input data.</para></listitem></varlistentry>
+   <varlistentry><term>levels:</term>
+      <listitem><para>Quantization levels.</para></listitem></varlistentry>
+   <varlistentry><term>qdata:</term>
+      <listitem><para>Output data.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+<link linkend="MQuantize">MQuantize()</link>
+quantizes the given data using specified quantization levels contained in the N-element vector levels.
+Output data is of the same size as input data and contains N + 1 discrete integer values in the range
+1 to N + 1 which are determined by the following criteria:
+<simplelist type="vert">
+    <member>
+If data(k) ≤ levels(1), then qdata(k) = 1.
+    </member>
+    <member>
+If levels(m-1) &lt; A(k)  ≤  levels(m), then qdata(k) = m.
+    </member>
+    <member>
+If data(k) &gt; levels(N), then qdata(k) = N + 1.
+    </member>
+</simplelist>
+   </para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+data = 1 : 10;
+levels = [3 7];
+qdata = MQuantize(data, levels)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="MCreateMosaicShape">MCreateMosaicShape</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Andrey Zubyuk</member>
+   </simplelist>
+</refsection>
+</refentry>

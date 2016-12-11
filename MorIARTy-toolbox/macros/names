@@ -1,0 +1,14 @@
+MCalculateNorm
+MCalculateProjectionNorm
+MCreateMosaicShape
+MCreateProjection
+MPrepareNorm
+MPrepareProjectionNorm
+MProject
+MorIARTyPath
+_MDebug
+_MError
+_MGrMosCreateShape
+_MGrMosPrepProjNorm
+_MGrMosProject
+_MValidate

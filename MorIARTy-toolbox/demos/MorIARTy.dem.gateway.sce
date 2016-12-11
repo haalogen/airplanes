@@ -1,0 +1,16 @@
+function subdemolist = demo_gateway()
+    demopath = get_absolute_file_path("MorIARTy.dem.gateway.sce");
+
+    subdemolist = [ ...
+        "Sum with Scilab",          "scilab_sum.dem.sce"; ...
+        "A C sum ",                 "c_sum.dem.sce"; ...
+        "Sum with fortran",         "fortran_sum.dem.sce"; ...
+        "Find in cpp",              "cpp_find.dem.sce"; ...
+    ];
+
+    subdemolist(:,2) = demopath + subdemolist(:,2);
+
+endfunction
+
+subdemolist = demo_gateway();
+clear demo_gateway; // remove demo_gateway on stack
